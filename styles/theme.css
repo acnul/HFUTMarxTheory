@@ -1,0 +1,119 @@
+:root {
+  /* 蓝色主题 (默认) */
+  --primary-color: #1565c0;
+  --primary-light: #bbdefb;
+  --primary-dark: #0d47a1;
+  --secondary-color: #4caf50;
+  --background-color: #f5f7fa;
+  --card-background: #ffffff;
+  --text-color: #333333;
+  --border-color: #e0e0e0;
+  
+  --correct-color: #4caf50;
+  --correct-light: #e8f5e9;
+  --incorrect-color: #f44336;
+  --incorrect-light: #ffebee;
+  
+  /* 动画时间 */
+  --transition-speed: 0.3s;
+}
+
+/* 主题变体 */
+.theme-green {
+  --primary-color: #2e7d32;
+  --primary-light: #e8f5e9;
+  --primary-dark: #1b5e20;
+  --secondary-color: #f9a825;
+}
+
+.theme-purple {
+  --primary-color: #6a1b9a;
+  --primary-light: #f3e5f5;
+  --primary-dark: #4a148c;
+  --secondary-color: #ff5722;
+}
+
+.theme-orange {
+  --primary-color: #e65100;
+  --primary-light: #fff3e0;
+  --primary-dark: #bf360c;
+  --secondary-color: #039be5;
+}
+
+.theme-teal {
+  --primary-color: #00796b;
+  --primary-light: #e0f2f1;
+  --primary-dark: #004d40;
+  --secondary-color: #ff5252;
+}
+
+/* 全局动画效果 */
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(21, 101, 192, 0.3); }
+  100% { box-shadow: 0 0 0 0 rgba(21, 101, 192, 0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    transform: translateY(10px); /* 减少移动距离 */
+    opacity: 0; 
+  }
+  to { 
+    transform: translateY(0); 
+    opacity: 1; 
+  }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); } /* 减少放大效果 */
+}
+
+/* Toast通知样式 */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background-color: #333;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  opacity: 0;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+.toast-success {
+  background-color: var(--correct-color);
+}
+
+.toast-error {
+  background-color: var(--incorrect-color);
+}
+
+.toast-warning {
+  background-color: #ff9800;
+}
+
+.toast-icon {
+  font-size: 18px;
+}
+
+.toast-message {
+  font-size: 14px;
+}
